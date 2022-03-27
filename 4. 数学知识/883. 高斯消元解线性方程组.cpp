@@ -41,8 +41,8 @@ int gauss()
     }
 
     // 有唯一解
-    for (int i = n - 1; i >= 0; i--)
-        for (int j = i + 1; j <= n; j++)
+    for (int i = n - 1; i >= 0; i -- )
+        for (int j = i + 1; j <= n; j ++ )
             a[i][n] -= a[i][j] * a[j][n];
 
     return 0;
