@@ -42,7 +42,7 @@ int gauss()
 
     // 有唯一解
     for (int i = n - 1; i >= 0; i -- )
-        for (int j = i + 1; j <= n; j ++ )
+        for (int j = i + 1; j < n; j ++ )
             a[i][n] -= a[i][j] * a[j][n];
 
     return 0;
@@ -60,7 +60,11 @@ int main()
 
     if (t == 0)
     {
-        for (int i = 0; i < n; i ++ ) printf("%.2lf\n", a[i][n]);
+        for (int i = 0; i < n; i ++ )
+        {
+            if (fabs(a[i][n]) < EPS) a[i][n] = 0;
+            printf("%.2lf\n", a[i][n]);
+        }
     }
     else if (t == 1) cout << "Infinite group solutions" << endl;
     else cout << "No solution" << endl;
